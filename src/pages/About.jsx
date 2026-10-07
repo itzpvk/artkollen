@@ -6,6 +6,7 @@ import StatTiles from '../components/StatTiles.jsx';
 
 const GBIF_DATASET = 'https://www.gbif.org/dataset/38b4c89f-584c-41bb-bd8f-cd1def33e92f';
 const TESTED = '2026-10-07';
+const AXE_VERSION = '4.13.0'; // keep in step with @axe-core/playwright in package.json
 
 function Sv({ meta }) {
   const s = meta?.source;
@@ -117,11 +118,34 @@ function Sv({ meta }) {
             </div>
             <div>
               <h3>Så har webbplatsen testats</h3>
-              <p>
-                Senast testad {TESTED}, med enbart automatiska tester: kontroll med axe, automatiserade kontroller av
-                tabbordningen med tangentbord, kontroll vid 320 px bredd (motsvarar 400 % zoom) och kontrastberäkning av
-                alla färger. Manuell testning med tangentbord och skärmläsare är planerad men har inte gjorts.
-              </p>
+              <p>Senast testad {TESTED}, med enbart automatiska tester.</p>
+              <ul>
+                <li>
+                  Tillgänglighetsregler: axe-core {AXE_VERSION}, körd via Playwright i Chromium, med reglerna för WCAG
+                  2.0 och 2.1 på nivå A och AA.
+                </li>
+                <li>
+                  74 kontroller: sidan Utforska (som den laddas, med alla tabellvyer öppna och med filterpanelen öppen på
+                  smala skärmar), Om datan och Designsystem, på svenska och engelska, i bredderna 1920, 1440, 1100,
+                  1099, 768, 700, 699 och 320 px. Varje kontroll testar också att sidan inte rullar i sidled.
+                </li>
+                <li>
+                  Tangentbord: automatiska tester av tabbordningen, länken Hoppa till resultat, fokus efter sortering
+                  och sidbyte, fokus på sidknapparna i båda ändar samt att filterpanelen öppnas och stängs på smala
+                  skärmar.
+                </li>
+              </ul>
+              <p>Det här testas inte:</p>
+              <ul>
+                <li>Manuell testning med tangentbord.</li>
+                <li>Testning med skärmläsare.</li>
+                <li>Andra webbläsare än Chromium, till exempel Firefox och Safari.</li>
+                <li>Zoom i en riktig webbläsare. Bara smala skärmbredder testas.</li>
+                <li>Det som axe markerar för manuell granskning, främst färgkontrast som verktyget inte kan räkna ut.</li>
+                <li>Bakgrundskartans bilder från OpenStreetMap.</li>
+                <li>Interaktiva lägen som ändrade filter, tangentbordsstyrning i diagrammen och kartan.</li>
+              </ul>
+              <p>Manuell testning med tangentbord och skärmläsare är planerad men har inte gjorts.</p>
             </div>
             <div>
               <h3>Rapportera brister</h3>
@@ -246,11 +270,35 @@ function En({ meta }) {
             </div>
             <div>
               <h3>How the site was tested</h3>
-              <p>
-                Last tested {TESTED}, with automated tests only: checks with axe, automated keyboard checks of the tab
-                order, a check at 320 px width (equivalent to 400% zoom) and contrast calculations for every colour.
-                Manual testing with a keyboard and a screen reader is planned but has not been done.
-              </p>
+              <p>Last tested {TESTED}, with automated tests only.</p>
+              <ul>
+                <li>
+                  Accessibility rules: axe-core {AXE_VERSION}, run through Playwright in Chromium, with the WCAG 2.0
+                  and 2.1 rules at levels A and AA.
+                </li>
+                <li>
+                  74 checks: the Explore page (as it first loads, with every table view open, and with the filter panel
+                  open on narrow screens), About the data and Design system, in Swedish and English, at widths of
+                  1920, 1440, 1100, 1099, 768, 700, 699 and 320 px. Each check also confirms that the page does not
+                  scroll sideways.
+                </li>
+                <li>
+                  Keyboard: automated tests of the tab order, the Skip to results link, focus after sorting and
+                  paging, focus on the pagination buttons at both ends, and opening and closing the filter panel on
+                  narrow screens.
+                </li>
+              </ul>
+              <p>Not covered:</p>
+              <ul>
+                <li>Manual testing with a keyboard.</li>
+                <li>Testing with a screen reader.</li>
+                <li>Browsers other than Chromium, such as Firefox and Safari.</li>
+                <li>Zoom in a real browser. Only narrow screen widths are tested.</li>
+                <li>Items that axe marks for manual review, mostly colour contrast it cannot calculate.</li>
+                <li>The background map images from OpenStreetMap.</li>
+                <li>Interactive states such as changed filters, keyboard use of the charts, and the map.</li>
+              </ul>
+              <p>Manual testing with a keyboard and a screen reader is planned but has not been done.</p>
             </div>
             <div>
               <h3>Report a problem</h3>

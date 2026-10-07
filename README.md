@@ -61,14 +61,20 @@ The site has three pages, all in Swedish and English (switch in the top bar).
 
 The target is WCAG 2.1 AA, the level Swedish law refers to through EN 301 549. The About page has the full accessibility statement, including known issues. The site **partially conforms**: for example, individual map squares cannot be reached by keyboard, so the same data is offered as a table.
 
-**Automated testing (in this repository):** `tests/a11y.mjs` runs [axe-core](https://github.com/dequelabs/axe-core) with the WCAG 2.0 and 2.1 A and AA rules, and also checks for sideways scrolling. It covers:
-- **Pages:** Explore (default, with every table view open, and with the mobile filter panel open), About, and Design system
-- **Languages:** Swedish and English
-- **Widths:** 1920, 1440, 1100, 1099, 768, 700, 699 and 320 px
+**Automated testing (in this repository):**
+- `npm run test:a11y` (`tests/a11y.mjs`) runs [axe-core](https://github.com/dequelabs/axe-core) 4.13.0 through Playwright in Chromium, with the WCAG 2.0 and 2.1 A and AA rules, and also checks for sideways scrolling. It makes 74 checks:
+  - **Pages:** Explore (default, with every table view open, and with the mobile filter panel open), About, and Design system
+  - **Languages:** Swedish and English
+  - **Widths:** 1920, 1440, 1100, 1099, 768, 700, 699 and 320 px
+- `npm run test:keyboard` (`tests/keyboard.mjs`) checks, in both languages:
+  - tab order and the "Skip to results" link
+  - focus after sorting and paging
+  - focus staying on the pagination buttons at both ends
+  - opening and closing the mobile filter panel with Enter, Space and Escape
 
-The last run (2026-10-07) had no violations.
+The last run (2026-10-07) passed all 74 axe checks and all 30 keyboard checks.
 
-**Other automated checks during development:** scripted browser checks of tab order, skip links, focus after sorting, paging and resetting filters, and that switching views never changes card heights. These scripts are not part of this repository.
+**Not covered by the tests:** browsers other than Chromium, zoom in a real browser, items axe marks for manual review (mostly colour contrast it cannot calculate), the OpenStreetMap background images, and states such as changed filters, keyboard use of the charts, and the map.
 
 **Manual testing:** no manual testing with a keyboard or a screen reader has been done yet. It is planned.
 
@@ -91,11 +97,12 @@ npm run build          # production build into dist/
 npm run preview        # serve the build, http://localhost:4173
 ```
 
-Accessibility tests (with `npm run preview` running in another terminal):
+Accessibility and keyboard tests (with `npm run preview` running in another terminal):
 
 ```bash
 npx playwright install chromium   # once, downloads the test browser
-npm run test:a11y
+npm run test:a11y                 # axe rules and sideways scrolling
+npm run test:keyboard             # tab order, skip link and focus checks
 ```
 
 Refresh the data from GBIF (takes a few minutes and replaces the files in `public/data/`):

@@ -12,7 +12,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "fetch-data": "node scripts/fetch-data.mjs",
-    "test:a11y": "node tests/a11y.mjs http://localhost:4173"
+    "test:a11y": "node tests/a11y.mjs http://localhost:4173",
+    "test:keyboard": "node tests/keyboard.mjs http://localhost:4173"
   },
   "dependencies": {
     "@fontsource/atkinson-hyperlegible-next": "^5.3.0",
