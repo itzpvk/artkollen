@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="sv" translate="no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- The site has its own Swedish/English switch; stop browser auto-translation,
+         which mistranslates the interface and mangles proper names. -->
+    <meta name="google" content="notranslate" />
+    <script>
+      // Set the page language from the saved choice before anything renders,
+      // so browsers (and Chrome's translate prompt) never see English text marked as Swedish.
+      try {
+        var saved = localStorage.getItem('artkollen-lang');
+        if (saved === 'sv' || saved === 'en') document.documentElement.lang = saved;
+      } catch (e) {}
+    </script>
+    <title>Artkollen – rapporterade arter i Uppsala län</title>
+    <meta
+      name="description"
+      content="Se var arter har rapporterats i Uppsala län, hur rapporterna har förändrats sedan 2000 och ladda ner observationerna. Data från Artportalen via GBIF."
+    />
+    <meta name="theme-color" content="#1F5A42" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Artkollen – rapporterade arter i Uppsala län" />
+    <meta
+      property="og:description"
+      content="Karta, diagram och tabell över rapporterade artobservationer i Uppsala län 2000–2025."
+    />
+    <meta property="og:locale" content="sv_SE" />
+    <meta property="og:locale:alternate" content="en_GB" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Dataset",
+        "name": "Rapporterade artobservationer i Uppsala län 2000–2025 (urval)",
+        "alternateName": "Reported species observations in Uppsala County 2000–2025 (sample)",
+        "description": "Urval av observationer för tio arter i Uppsala län från Artportalen, hämtade via GBIF. Visar rapporterade observationer, inte populationsstorlek.",
+        "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "isBasedOn": "https://www.gbif.org/dataset/38b4c89f-584c-41bb-bd8f-cd1def33e92f",
+        "creator": { "@type": "Organization", "name": "SLU Artdatabanken" },
+        "spatialCoverage": { "@type": "Place", "name": "Uppsala län, Sverige" },
+        "temporalCoverage": "2000/2025",
+        "inLanguage": ["sv", "en"]
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>Artkollen behöver JavaScript för karta och diagram. / Artkollen needs JavaScript for the map and chart.</noscript>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

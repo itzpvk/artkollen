@@ -1,0 +1,26 @@
+/* Digits 0–9 come from Source Sans 3, which has a plain (unslashed) zero and
+   tabular figures. Everything else stays in Atkinson Hyperlegible Next.
+   The browser picks this face only for characters inside unicode-range. */
+@font-face {
+  font-family: 'Artkollen Digits';
+  font-weight: 400;
+  font-display: swap;
+  src: url('../../node_modules/@fontsource/source-sans-3/files/source-sans-3-latin-400-normal.woff2') format('woff2');
+  unicode-range: U+0030-0039;
+}
+
+@font-face {
+  font-family: 'Artkollen Digits';
+  font-weight: 600;
+  font-display: swap;
+  src: url('../../node_modules/@fontsource/source-sans-3/files/source-sans-3-latin-600-normal.woff2') format('woff2');
+  unicode-range: U+0030-0039;
+}
+
+@font-face {
+  font-family: 'Artkollen Digits';
+  font-weight: 700;
+  font-display: swap;
+  src: url('../../node_modules/@fontsource/source-sans-3/files/source-sans-3-latin-700-normal.woff2') format('woff2');
+  unicode-range: U+0030-0039;
+}

@@ -1,0 +1,77 @@
+/* Design tokens. Names match the Figma variables' code syntax (file "SLU", collections
+   Primitives / Color / Spacing & radius). Palette borrows from Swedish terrain maps. */
+
+:root {
+  /* Primitives */
+  --spruce-50: #eef4ef;
+  --spruce-600: #1f5a42;
+  --spruce-700: #174634;
+  --spruce-900: #1a2b24;
+  --lake-100: #dceaf2;
+  --lake-600: #2b6a8f;
+  --contour-600: #8c5a2e;
+  --grey-50: #f5f7f4;
+  --grey-100: #eaeeea;
+  --grey-200: #d5dcd7;
+  --grey-600: #56645d;
+  --white: #ffffff;
+  --red-600: #a3271f;
+
+  /* Semantic colour */
+  --color-bg-page: var(--grey-50);
+  --color-bg-surface: var(--white);
+  --color-bg-subtle: var(--grey-100);
+  --color-bg-info: var(--lake-100);
+  --color-bg-selected: var(--spruce-50);
+  --color-text-primary: var(--spruce-900);
+  --color-text-secondary: var(--grey-600);
+  --color-text-on-action: var(--white);
+  --color-text-link: var(--spruce-600);
+  --color-text-error: var(--red-600);
+  --color-action-primary: var(--spruce-600);
+  --color-action-primary-hover: var(--spruce-700);
+  --color-action-disabled: var(--grey-200);
+  --color-border-default: var(--grey-200);
+  --color-border-input: var(--grey-600);
+  --color-border-selected: var(--spruce-600);
+  --color-focus: var(--lake-600);
+  --color-icon-info: var(--lake-600);
+
+  /* Data: one hue, light to dark, evenly stepped in lightness */
+  --color-data-1: #d3e7d2;
+  --color-data-2: #a3cca8;
+  --color-data-3: #6ba87a;
+  --color-data-4: #3a7f55;
+  --color-data-5: #1b5239;
+  --color-data-bar: var(--color-data-4);
+  --color-data-compare: var(--contour-600);
+
+  /* Spacing */
+  --space-2xs: 4px;
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+
+  /* Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-full: 999px;
+
+  /* Type: Atkinson Hyperlegible Next, scale 1.25 */
+  /* 'Artkollen Digits' only covers 0–9 (see digits.css). */
+  --font-sans: 'Artkollen Digits', 'Atkinson Hyperlegible Next', system-ui, sans-serif;
+  --text-display: 700 2.4375rem/3rem var(--font-sans);
+  --text-h1: 700 1.9375rem/2.5rem var(--font-sans);
+  --text-h2: 600 1.5625rem/2rem var(--font-sans);
+  --text-h3: 600 1.25rem/1.75rem var(--font-sans);
+  --text-body: 400 1rem/1.625rem var(--font-sans);
+  --text-small: 400 0.875rem/1.375rem var(--font-sans);
+  --text-label: 600 0.875rem/1.25rem var(--font-sans);
+
+  --content-width: 72rem;
+  --measure: 68ch;
+}
