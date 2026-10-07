@@ -35,7 +35,9 @@ export default function App() {
       return;
     }
     window.scrollTo(0, 0);
-    mainRef.current?.focus();
+    // preventScroll: focusing <main> would otherwise scroll it to the top of
+    // the window and push the header out of view.
+    mainRef.current?.focus({ preventScroll: true });
   }, [pathname]);
 
   return (

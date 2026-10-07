@@ -149,6 +149,28 @@ a:hover {
   margin-right: auto;
 }
 
+/* From 700px: logo left, menu centred, language switch right. The outer
+   columns share the leftover space equally, so the menu sits in the true
+   centre of the bar whatever the logo and switch widths are. */
+@media (min-width: 43.75rem) {
+  .site-header__inner {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+  }
+
+  .site-header__inner > .wordmark {
+    justify-self: start;
+  }
+
+  .site-nav {
+    margin-right: 0;
+  }
+
+  .site-header__inner > .segmented {
+    justify-self: end;
+  }
+}
+
 .site-nav a {
   font: var(--text-label);
   font-size: 1rem;
