@@ -2,7 +2,7 @@
 
 A bilingual (Swedish/English) dashboard that shows where ten species have been reported in Uppsala County, how reports have changed since 2000, and the underlying records.
 
-**Live demo:** _link added after deployment_
+**Live demo:** [artkollen.vercel.app](https://artkollen.vercel.app)
 
 ![Explore page: filter panel, answer sentence, key figures, map of Uppsala County and charts](docs/explore.png)
 
